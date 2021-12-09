@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+</head>
+<body>
+
+    <h1>Register User</h1>
+    <input id="registerEmail" type="text">
+    <input type="text" id="registerPassword">
+    <button onclick="registerUser()">Register</button>
+    
+    <h1>Sign In</h1>
+    <input id="logInEmail" type="text">
+    <input type="text" id="logInPassword">
+    <button onclick="signInUser()">Sign in</button>
+
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="java.js"></script>
+
+</html>
+
+<!--
+<script>
+
+    firebase.initializeApp({
+        apiKey: "AIzaSyDgAFgXelT-F0vGjjtFbS5QeuycRjHPxMU",
+        authDomain: "recipe-app-158e1.firebaseapp.com",
+        projectId: "recipe-app-158e1",
+    })
+
+    const db = firebase.firestore()
+
+function registerUser(){ // CREATE A USER 
+
+    let regEmail = document.getElementById("registerEmail").value;
+    let regPass = document.getElementById("registerPassword").value;
+
+  firebase.auth().createUserWithEmailAndPassword(regEmail,regPass)
+  .then((user) =>{
+
+    let userId = user.user.uid;
+    console.log(userId)
+
+    console.log("registration success")
+//    window.location.href = "/loggedin";
+    
+  })
+  // .catch(()=>{
+  //   alert("failed")
+  // })
+}
+
+
+function signInUser(){
+
+    let logInEmail = document.getElementById("logInEmail").value;
+    let logInPass = document.getElementById("logInPassword").value;
+
+  firebase.auth().signInWithEmailAndPassword(logInEmail,logInPass)
+  .then((user)=>{
+
+    console.log("user signed in")
+    window.location.href = "recipe.html";
+  })
+
+  
+}
+
+</script>
+
+-->

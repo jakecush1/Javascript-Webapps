@@ -1,0 +1,53 @@
+<html>
+<body id="test1">
+
+<h1>Matts Web Builder</h1>
+    <button onclick="genHTML()">generate HTML</button>
+    <button onclick="genPost()">Make Post</button>
+    
+
+</body>
+
+</html>
+
+<script>
+
+    
+    function genHTML(){
+       let input = prompt("enter HTML Tag");
+       let button = document.createElement(input) // has to be uppercase
+       let text = prompt("Enter the Text for your element");
+       button.innerText = text; // the variable stored is document.createElement("BUTTON")
+       // button.style.fontSize = "24px";
+         document.body.appendChild(button);
+        
+    }
+
+        
+    function genPost(){
+
+        let currentTime = new Date();
+        let time = currentTime.getTime();
+
+       let input = prompt("Enter Post Title") ;
+       let title = document.createElement("H1") ;// has to be uppercase
+        title.innerText = input;
+
+        let post = document.createElement("P");
+        post.innerText = prompt("Enter your post");
+
+        let author = document.createElement("strong");
+        author.innerText = prompt("Enter Author's name");
+        
+        let timeStamp = document.createElement("em");
+        timeStamp.innerText = time;
+
+       document.body.appendChild(title);
+       document.body.appendChild(post);
+       document.body.appendChild(author);
+       document.body.appendChild(timeStamp);
+
+    }
+
+
+    </script>

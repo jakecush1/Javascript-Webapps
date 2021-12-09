@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <title>Recipe Storage App</title>
+</head>
+<body>
+  <style>
+    body {
+      text-align:center;
+    }
+  </style>
+
+    <h1>Add new Recipe</h1>
+    <input placeholder="What u cookin" id ="food" type="text">
+
+    <div id="ingrDiv">
+        <h1>Add New Ingredient</h1>
+        <p><input type="text" id="ingredient" placeholder="Ingredient"></p>
+        <p><input type="text" id="amount" placeholder="Amount"></p>
+        <p><button onclick="makeRecipe()">Add Ingredient</button></p>
+    </div>
+
+    <button id="signOut" onclick="signOutUser()">Sign Out</button>
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="java.js"></script>
+
+</html>
+
+<!--
+<script>
+
+    firebase.initializeApp({
+        apiKey: "AIzaSyDgAFgXelT-F0vGjjtFbS5QeuycRjHPxMU",
+        authDomain: "recipe-app-158e1.firebaseapp.com",
+        projectId: "recipe-app-158e1",
+    })
+
+    const db = firebase.firestore()
+
+    //storing ingredients as arrays worked aswell
+    //but they were stored as strings instead of
+    //
+  // let ingredientsArray = [];
+
+function makeRecipe(){
+
+    //get inputs
+    let recipe = document.getElementById("food").value;
+    let ingredientItems = document.getElementById("ingredient").value;
+    let amount = document.getElementById("amount").value;
+    let ingredients = "Ingredients";
+
+    // ingredientsArray.push(ingredientItems);
+    // console.log(amount + ingredientsArray);
+
+    //access user id to store data
+    let userID = firebase.auth().currentUser.uid;
+    // console.log(userID);
+
+    //set new item
+    db.collection("Recipe App").doc(userID).set(
+      {[recipe]:{[ingredientItems]: amount}} , 
+      {merge:true}
+    )
+
+    .then(()=> {
+
+      console.log("document successfully written")
+
+      document.getElementById("ingredient").value = "" ;
+      document.getElementById("amount").value = ""    
+
+       
+    })
+    .catch(()=>{
+
+    })
+}
+
+function signOutUser(){
+    firebase.auth().signOut().then(() => {
+
+      console.log("user signed out")
+      window.location.href = "sign-in.html";
+    })
+    
+  }
+  
+
+
+</script>
+
+-->
